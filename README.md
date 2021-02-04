@@ -1,6 +1,11 @@
+<<<<<<< HEAD
+# gmp-auth
+
+=======
 # Fixly-clone
 
 ## Start
+>>>>>>> master
 Przed pierwszym uruchomieniem aplikacji należy stworzyć folder w którym będą przechowywane dane Postgre:
 
 ```
@@ -9,7 +14,13 @@ $ mkdir -p postgre/dbdata
 
 Plik ```.env``` zawiera domyślną konfigurację aplikacji do developmentu
 
+<<<<<<< HEAD
+- ```TODO:``` stworzyć ```.env.stage,.env.prod``` z konfiguracjami dla środowiska stagingowego i produkcyjnego
+
+##
+=======
 ## Uruchomienie
+>>>>>>> master
 
 Aby uruchomić aplikację należy wywołać:
 ```
