@@ -1,0 +1,33 @@
+version: '3.7'
+
+networks:
+  fixly-clone:
+    name: fixly-clone
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        BUILD_ENV: ${APP_ENV}
+        PIPENV_DEV: ${PIPENV_DEV}
+    networks: [ "fixly-clone" ]
+    ports: [ "5000:5000" ]
+    environment:
+      - FLASK_ENV=${APP_ENV}
+      - FLASK_APP=src/app.py
+    volumes:
+      - ./src:/usr/src/app/src
+    depends_on:
+      - db
+    command: ["/opt/bin/wait-for-it.sh", "db:5432", "--", "pipenv", "run", "${RUN_SCRIPT}"]
+  db:
+    image: postgres:13
+    networks: [ "fixly-clone" ]
+    environment:
+       - POSTGRES_USER=${POSTGRES_USER}
+       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+       - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+       - ./postgre/dbdata:/var/lib/postgresql/data
