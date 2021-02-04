@@ -1,7 +1,7 @@
-
 # Fixly-clone
 
 ## Start
+
 Przed pierwszym uruchomieniem aplikacji należy stworzyć folder w którym będą przechowywane dane Postgre:
 
 ```
