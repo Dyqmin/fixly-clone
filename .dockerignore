@@ -1,0 +1,6 @@
+# Postgre db service
+postgre/
+
+# environment variables
+**/.env*
+.env*

@@ -1,0 +1,9 @@
+# Vim backups/swap
+*.un~
+*.swp
+
+# Postgre database storage
+postgre/dbdata/*
+
+# IDE files
+.idea/
