@@ -13,7 +13,7 @@ def create_app(config_file=None, settings_override=None):
 
     @app.route('/')
     def hello():
-        return str(POSTGRES_DB)
+        return 'Hello world!'
 
     db.init_app(app)
     migrate.init_app(app, db)
