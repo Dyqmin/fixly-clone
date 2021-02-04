@@ -17,6 +17,9 @@ services:
     environment:
       - FLASK_ENV=${APP_ENV}
       - FLASK_APP=src/app.py
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - ./src:/usr/src/app/src
       - ./migrations:/usr/src/app/migrations
