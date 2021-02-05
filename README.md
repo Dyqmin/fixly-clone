@@ -1,4 +1,3 @@
-
 # Fixly-clone
 
 ## Opis i cel projektu
@@ -49,6 +48,7 @@ oraz funkcji ***docker-compose***.
 - Oferowanie usług na otwarte zgłoszenia
 
 ## Proces developmentu na lokalnym środowisku
+
 Przed pierwszym uruchomieniem aplikacji należy stworzyć folder w którym będą przechowywane dane Postgre:
 
 ```
