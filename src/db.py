@@ -1,27 +1,29 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from sqlalchemy_serializer import SerializerMixin
 
 
 migrate = Migrate()
 db = SQLAlchemy()
 
 
-class User(db.Model):
+class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer(), primary_key=True)
     first_name = db.Column(db.String(80), nullable=False)
     last_name = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    user_type = db.Column(db.Integer, db.ForeignKey('user_types.id'), nullable=False)
+    password = db.Column(db.Text, nullable=False)
 
 
-class Contractor(db.Model):
-    __tablename__ = 'contractors'
+class UserType(db.Model, SerializerMixin):
+    __tablename__ = 'user_types'
 
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(80), nullable=False)
-    phone_number = db.Column(db.String(80), nullable=False)
-    description = db.Column(db.Text, nullable=False)
+    active = db.Column(db.Integer(), nullable=False)
 
 
 class Order(db.Model):
@@ -38,7 +40,7 @@ class Offer(db.Model):
 
     id = db.Column(db.Integer(), primary_key=True)
     order_id = db.Column(db.Integer, db.ForeignKey('orders.id'), nullable=False)
-    contractor_id = db.Column(db.Integer, db.ForeignKey('contractors.id'), nullable=False)
+    contractor_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     price = db.Column(db.Float, nullable=False)
 
 
