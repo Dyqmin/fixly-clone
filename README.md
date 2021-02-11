@@ -20,14 +20,16 @@ zaakceptować czyjeś usługi, tym samym kończąc zgłoszenie.
 ### Opis techniczny
 Backend aplikacji bazuje na frameworku **Flask** oraz podległych mu bibliotekach do 
 łatwiejszego zarządzania kodem:
-- flask-migrate - system migracji bazy danych
+- flask-migrate - system migracji bazy danych utworzony na bazie biblioteki **Alembic**
 - flask-script - szybszy proces obsługi ustawień aplikacji, np. tworzenie migracji
 - sqlalchemy-serializer - procesowanie zapytania z bazy danych do odpowiedzi w formie JSONa
+- flask-restplus - łatwiejsze budowanie restowego API z możliwością tworzenia dokumentacji
+ w aplikacji Swagger-UI
 
-Aplikacja uruchamiana jest w wirtualnym środowisku **pipenv**.
-Do przechowywania danych użyliśmy bazy **PostgreSQL**. 
-W celu szybkiego prototypowania modeli bazodanowych wybraliśmy ORM **SQLAlchemy**.
-W procesie developmentu postanowiliśmy na kontyneryzowanie aplikacji z pomocą **Dockera** 
+Aplikacja uruchamiana jest w wirtualnym środowisku **pipenv**.  
+Do przechowywania danych użyliśmy bazy **PostgreSQL**.  
+W celu szybkiego prototypowania modeli bazodanowych wybraliśmy ORM **SQLAlchemy**.  
+W procesie developmentu postawiliśmy na kontyneryzowanie aplikacji z pomocą **Dockera** 
 oraz funkcji ***docker-compose***. 
 
 
@@ -55,20 +57,26 @@ Przed pierwszym uruchomieniem aplikacji należy stworzyć folder w którym będ�
 $ mkdir -p postgre/dbdata
 ```
 
-Plik ```.env``` zawiera domyślną konfigurację aplikacji do developmentu
+Konfiguracja ustawień aplikacji poprzez zmienne środowiskowe zwarta została w pliku ```.env```.   
+Przykładowy plik ```.env```:
+```
+APP_ENV=development
+PIPENV_DEV=true
 
+RUN_SCRIPT=serve-dev
+
+POSTGRES_USER=test
+POSTGRES_PASSWORD=password
+POSTGRES_DB=test
+```
 
 ### Uruchomienie
 
 Aby uruchomić aplikację należy wywołać:
 ```
-# docker-compose up
-```
-lub:
-```
 # docker-compose up -d
 ```
-by uruchomić ją w tle i wyciszyć logowanie, po czym będzie ona dostępna pod adresem ```http://localhost:5000```
+Aplikacja domyślnie będzie uruchomiona na porcie 5000 pod adresem: ```http://localhost:5000```
 
 ### Migracje
 
