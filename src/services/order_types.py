@@ -1,9 +1,14 @@
-from flask import Blueprint, jsonify
+from flask import jsonify
+from flask_restplus import Namespace, Resource
 from src.db import OrderType
 
-order_types = Blueprint('order_types', __name__, template_folder='services')
+
+order_types = Namespace('Order Types', description='Order Types namespace')
 
 
-@order_types.route('/order-types/', methods=['GET'])
-def get_order_types():
-    return jsonify(order_types=[item.to_dict() for item in OrderType.query.all()])
+@order_types.route('/order-types/')
+class OrderTypes(Resource):
+    @order_types.doc('order types')
+    def get(self):
+        """List all types of order"""
+        return jsonify(order_types=[item.to_dict() for item in OrderType.query.all()])

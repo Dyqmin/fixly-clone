@@ -1,7 +1,8 @@
-from flask import Flask
+from flask import Flask, Blueprint
 from src.db import db, migrate
 import os
-from src.services import register, users, user_types, login, order_types, orders
+from src.services import users, user_types, login, order_types, orders
+from flask_restplus import Api, Resource
 
 
 POSTGRES_DB = os.environ.get('POSTGRES_DB')
@@ -16,12 +17,15 @@ def create_app(config_file=None, settings_override=None):
     db.init_app(app)
     migrate.init_app(app, db)
 
-    app.register_blueprint(register.register)
-    app.register_blueprint(users.users)
-    app.register_blueprint(user_types.user_types)
-    app.register_blueprint(login.login)
-    app.register_blueprint(order_types.order_types)
-    app.register_blueprint(orders.orders)
+    api = Api(app)
+    blueprint = Blueprint('api', __name__, url_prefix='/api')
+    api.init_app(blueprint)
+    api.add_namespace(login.login)
+    api.add_namespace(users.users)
+    api.add_namespace(order_types.order_types)
+    api.add_namespace(user_types.user_types)
+    api.add_namespace(orders.orders)
+    app.register_blueprint(blueprint)
 
     return app
 
