@@ -1,11 +1,7 @@
 {
     "_meta": {
         "hash": {
-<<<<<<< HEAD
-            "sha256": "f8dffcc6f4636ef6de3e0aabb3a52768d83d482536ced121230c491633bb0334"
-=======
-            "sha256": "26fd2cedc8c9d55a44fa8a5ef64b4ce08224f8c38ab5b17c597da0a00d5a38a2"
->>>>>>> master
+            "sha256": "d0ae485dd0e53077648928baaeb9d3970a51be9cba844ffe2c7ae0975843ef74"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -22,17 +18,10 @@
     "default": {
         "alembic": {
             "hashes": [
-<<<<<<< HEAD
                 "sha256:e871118b6174681f7e9a9ea67cfcae954c6d18e05b49c6b17f662d2530c76bf5"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
             "version": "==1.5.4"
-=======
-                "sha256:04608b6904a6e6bd1af83e1a48f73f50ba214aeddef44b92d498df33818654a8"
-            ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
-            "version": "==1.5.3"
->>>>>>> master
         },
         "attrs": {
             "hashes": [
@@ -198,7 +187,6 @@
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==1.1.1"
         },
-<<<<<<< HEAD
         "psycopg2": {
             "hashes": [
                 "sha256:00195b5f6832dbf2876b8bf77f12bdce648224c89c880719c745b90515233301",
@@ -220,8 +208,6 @@
             "index": "pypi",
             "version": "==2.8.6"
         },
-=======
->>>>>>> master
         "pyhamcrest": {
             "hashes": [
                 "sha256:412e00137858f04bde0729913874a48485665f2d36fe9ee449f26be864af9316",
@@ -235,11 +221,7 @@
                 "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c",
                 "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"
             ],
-<<<<<<< HEAD
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
-=======
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
->>>>>>> master
             "version": "==2.8.1"
         },
         "python-editor": {
@@ -257,11 +239,7 @@
                 "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259",
                 "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"
             ],
-<<<<<<< HEAD
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
-=======
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
->>>>>>> master
             "version": "==1.15.0"
         },
         "sqlalchemy": {
@@ -307,6 +285,13 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==1.3.23"
+        },
+        "sqlalchemy-serializer": {
+            "hashes": [
+                "sha256:00667937405e8c183947fa57e08273cf1878c37011de5b7544b3f10f5b7a6773"
+            ],
+            "index": "pypi",
+            "version": "==1.3.4.4"
         },
         "twisted": {
             "hashes": [
@@ -407,17 +392,10 @@
     "develop": {
         "alembic": {
             "hashes": [
-<<<<<<< HEAD
                 "sha256:e871118b6174681f7e9a9ea67cfcae954c6d18e05b49c6b17f662d2530c76bf5"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
             "version": "==1.5.4"
-=======
-                "sha256:04608b6904a6e6bd1af83e1a48f73f50ba214aeddef44b92d498df33818654a8"
-            ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
-            "version": "==1.5.3"
->>>>>>> master
         },
         "bcrypt": {
             "hashes": [
@@ -614,11 +592,7 @@
                 "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c",
                 "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"
             ],
-<<<<<<< HEAD
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
-=======
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
->>>>>>> master
             "version": "==2.8.1"
         },
         "python-editor": {
@@ -636,11 +610,7 @@
                 "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259",
                 "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"
             ],
-<<<<<<< HEAD
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
-=======
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
->>>>>>> master
             "version": "==1.15.0"
         },
         "sqlalchemy": {

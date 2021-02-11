@@ -5,11 +5,7 @@ name = "pypi"
 
 [scripts]
 serve-dev = "flask run --host=0.0.0.0"
-<<<<<<< HEAD
-serve = "twistd -n web --port tcp:5000 --wsgi gmp_auth.app"
-=======
 serve = "twistd -n web --port tcp:5000 --wsgi app.app"
->>>>>>> master
 
 [packages]
 flask = "*"
@@ -17,10 +13,8 @@ flask-sqlalchemy = "*"
 flask-migrate = "*"
 flask-script = "*"
 twisted = "*"
-<<<<<<< HEAD
 psycopg2 = "*"
-=======
->>>>>>> master
+sqlalchemy-serializer = "*"
 
 [dev-packages]
 flask-sqlalchemy = "*"
