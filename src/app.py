@@ -1,7 +1,7 @@
 from flask import Flask, Blueprint
 from src.db import db, migrate
 import os
-from src.services import users, user_types, login, order_types, orders
+from src.services import users, user_types, login, order_types, orders, offers
 from flask_restplus import Api, Resource
 
 
@@ -25,6 +25,7 @@ def create_app(config_file=None, settings_override=None):
     api.add_namespace(order_types.order_types)
     api.add_namespace(user_types.user_types)
     api.add_namespace(orders.orders)
+    api.add_namespace(offers.offers)
     app.register_blueprint(blueprint)
 
     return app

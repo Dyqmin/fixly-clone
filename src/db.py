@@ -35,7 +35,7 @@ class Order(db.Model, SerializerMixin):
     description = db.Column(db.Text, nullable=False)
 
 
-class Offer(db.Model):
+class Offer(db.Model, SerializerMixin):
     __tablename__ = 'offers'
 
     id = db.Column(db.Integer(), primary_key=True)
