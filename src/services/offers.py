@@ -4,7 +4,7 @@ from operator import itemgetter
 from src.db import Offer, db
 
 
-offers = Namespace('Offers', description='Offers namespace')
+offers = Namespace('Offers', description='Offers of existing orders')
 offers_input = offers.model('Orders', {
     'order_id': fields.String(required=True, description='Id of order that exists in database', example='2'),
     'contractor_id': fields.String(required=True, description='User id who is a contractor', example='8'),
@@ -22,7 +22,7 @@ class OffersList(Resource):
     @offers.doc('offer create')
     @offers.expect(offers_input)
     def post(self):
-        """Create new order"""
+        """Create new offer"""
         order_id, contractor_id, price = itemgetter(
             'order_id',
             'contractor_id',

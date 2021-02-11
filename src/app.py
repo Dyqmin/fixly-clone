@@ -17,7 +17,9 @@ def create_app(config_file=None, settings_override=None):
     db.init_app(app)
     migrate.init_app(app, db)
 
-    api = Api(app)
+    api = Api(version='1.0', title='Fixly clone',
+              description='WIT Project for Python basics course')
+    api.init_app(app)
     blueprint = Blueprint('api', __name__, url_prefix='/api')
     api.init_app(blueprint)
     api.add_namespace(login.login)
