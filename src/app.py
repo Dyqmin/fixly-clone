@@ -1,7 +1,7 @@
 from flask import Flask
 from src.db import db, migrate
 import os
-from src.services import register, users, user_types, login, order_types
+from src.services import register, users, user_types, login, order_types, orders
 
 
 POSTGRES_DB = os.environ.get('POSTGRES_DB')
@@ -21,6 +21,7 @@ def create_app(config_file=None, settings_override=None):
     app.register_blueprint(user_types.user_types)
     app.register_blueprint(login.login)
     app.register_blueprint(order_types.order_types)
+    app.register_blueprint(orders.orders)
 
     return app
 

@@ -26,7 +26,7 @@ class UserType(db.Model, SerializerMixin):
     active = db.Column(db.Integer(), nullable=False)
 
 
-class Order(db.Model):
+class Order(db.Model, SerializerMixin):
     __tablename__ = 'orders'
 
     id = db.Column(db.Integer(), primary_key=True)
