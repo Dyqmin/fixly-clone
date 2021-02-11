@@ -44,7 +44,7 @@ class Offer(db.Model):
     price = db.Column(db.Float, nullable=False)
 
 
-class OrderType(db.Model):
+class OrderType(db.Model, SerializerMixin):
     __tablename__ = 'order_types'
 
     id = db.Column(db.Integer(), primary_key=True)
