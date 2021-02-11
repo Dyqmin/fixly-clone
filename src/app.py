@@ -1,8 +1,7 @@
-from flask import Flask, request, jsonify, Response, abort
-from db import db, migrate, User, UserType
+from flask import Flask, Blueprint
+from src.db import db, migrate
 import os
-from src.services import register, users, user_types, login
-
+from src.api import init_api
 
 POSTGRES_DB = os.environ.get('POSTGRES_DB')
 POSTGRES_USER = os.environ.get('POSTGRES_USER')
@@ -15,11 +14,8 @@ def create_app(config_file=None, settings_override=None):
 
     db.init_app(app)
     migrate.init_app(app, db)
-    
-    app.register_blueprint(register.register)
-    app.register_blueprint(users.users)
-    app.register_blueprint(user_types.user_types)
-    app.register_blueprint(login.login)
+
+    init_api(app)
 
     return app
 

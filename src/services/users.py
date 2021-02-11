@@ -1,29 +1,48 @@
-from flask import Blueprint, jsonify, request
+from flask import jsonify, request
 from operator import itemgetter
 import bcrypt
 from src.db import db, User
+from flask_restplus import Namespace, Resource, fields
 
-users = Blueprint('users', __name__, template_folder='services')
+users = Namespace('Users', description='Users namespace')
+users_input = users.model('User', {
+    'first_name': fields.String(required=True, description='User first name'),
+    'last_name': fields.String(required=True, description='User last name'),
+    'email': fields.String(required=True, description='User email'),
+    'password': fields.String(required=True, description='User password'),
+    'type': fields.String(required=True, description='User type id'),
+})
 
 
-@users.route('/users/<int:user_id>', methods=['GET'])
-def get_user(user_id):
-    user_object = User.query.filter_by(id=user_id).first()
-    if not user_object:
-        return jsonify(message='User with provided ID is not in database!'), 400
-    return jsonify(user_object.to_dict())
+@users.route('/users/<int:user_id>')
+class Users(Resource):
+    @users.doc('user')
+    def get(self, user_id):
+        '''Returns user`s data'''
+        user_object = User.query.filter_by(id=user_id).first()
+        if not user_object:
+            users.abort(400, 'User with provided ID is not in database!')
+        return jsonify(user_object.to_dict())
 
 
 @users.route('/users/', methods=['GET', 'POST'])
-def create_user():
-    if request.method == 'POST':
+class UsersList(Resource):
+    @users.doc('users list')
+    def get(self):
+        """List all users"""
+        return jsonify(users=[item.to_dict() for item in User.query.all()])
+
+    @users.doc('user insert')
+    @users.expect(users_input)
+    def post(self):
+        """Creates new user"""
         first_name, last_name, email, password, u_type = itemgetter(
             'first_name',
             'last_name',
             'email',
             'password',
             'type')(
-            request.values)
+            request.json)
         user_object = User.query.filter_by(email=email).first()
         if user_object:
             return jsonify(message='Email is already in database!'), 400
@@ -33,6 +52,3 @@ def create_user():
         db.session.add(new_user)
         db.session.commit()
         return jsonify(message='User has been inserted!')
-
-    if request.method == 'GET':
-        return jsonify(users=[item.to_dict() for item in User.query.all()])

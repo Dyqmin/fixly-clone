@@ -26,7 +26,7 @@ class UserType(db.Model, SerializerMixin):
     active = db.Column(db.Integer(), nullable=False)
 
 
-class Order(db.Model):
+class Order(db.Model, SerializerMixin):
     __tablename__ = 'orders'
 
     id = db.Column(db.Integer(), primary_key=True)
@@ -35,7 +35,7 @@ class Order(db.Model):
     description = db.Column(db.Text, nullable=False)
 
 
-class Offer(db.Model):
+class Offer(db.Model, SerializerMixin):
     __tablename__ = 'offers'
 
     id = db.Column(db.Integer(), primary_key=True)
@@ -44,8 +44,9 @@ class Offer(db.Model):
     price = db.Column(db.Float, nullable=False)
 
 
-class OrderType(db.Model):
+class OrderType(db.Model, SerializerMixin):
     __tablename__ = 'order_types'
 
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(80), nullable=False)
+    active = db.Column(db.Integer(), nullable=False)
