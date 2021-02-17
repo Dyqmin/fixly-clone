@@ -1,5 +1,8 @@
 # Fixly-clone
 
+## Project Info
+It was created mainly for the needs of the school project.
+
 ## Opis i cel projektu
 
 ### Cel
