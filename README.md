@@ -1,7 +1,7 @@
 # Fixly-clone
 
 ## Project Info
-It was created mainly for the needs of the school project.
+It was created mainly for the needs of the school project. Whole description down below will be written in Polish language.
 
 ## Opis i cel projektu
 
